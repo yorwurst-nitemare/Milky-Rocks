@@ -11,22 +11,32 @@ var y = Math.floor((Math.random() * 10000000) + 100000);
 </script>
  </head>
  <body>
-<p>Thank you for your purchase sucker:DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</p>
-     <img src="pics/troll1.png" id="satan">
+<p>Thank you for your purchase sucker  :DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</p>
+     <img src="pics/troll1.jpe" id="satan">
     	<button onclick="draw()">Repeat</button> 
 	    <canvas id="myCanvas"></canvas>
+ <style>
+#container {
+  position: relative;
+  background-image: url("pics/opticalillusion1.jpg");
+}
+ </style>
+<div id ="container"></div>
 <script>
-var dx = 5, rate = 1, ani;
-	
-function draw(direction) {
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
-    ctx.clearRect(0, 0, c.width, c.height); 
-    var img = document.getElementById("satan")
-    var pat = ctx.createPattern(img, 'repeat');
-    ctx.rect(0, 0, 600, 300);
-    ctx.fillStyle = pat;
-    ctx.fill();
-   </script>
+function myMove() {
+  var elem = document.getElementById("container");   
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+</script>
   </body>
 </html>
