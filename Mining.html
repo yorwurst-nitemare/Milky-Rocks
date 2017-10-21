@@ -6,7 +6,7 @@
 	<p>Image to use:</p>
 	<img src="pics/favicon.ico" width="16" height="16" id="satan">
 	<button onclick="draw('repeat')">Repeat</button> 
-	<canvas id="myCanvas" width="600" height="300">
+	<canvas id="myCanvas" width="16" height="16">
 <script>
 
 function draw(direction) {
@@ -16,7 +16,7 @@ function draw(direction) {
     var img = document.getElementById("satan")
     var pat = ctx.createPattern(img, direction);
     ctx.rect(0, 0, 600, 300);
-    ctx.fillStyle = img;
+    ctx.fillStyle = pat;
     ctx.fill();
 }
 
