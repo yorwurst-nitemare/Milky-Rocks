@@ -48,7 +48,8 @@ function init() {
 
 function drawCanvas() {
 	c.clearRect(0, 0, c.canvas.width, c.canvas.height);	// Clear the (displayed) canvas to avoid errors
-	c.save();											// Saves the current state of properties (coordinates!)									// Draws the background (grass)
+	c.save();											// Saves the current state of properties (coordinates!)
+	drawGrass();										// Draws the background (grass)
 	c.translate(carX, 0);								// Does some coordinate transformation
 	drawCar();											// Draws the car (redraws hidden canvas)
 	c.drawImage(w.canvas, 0, carY);						// Draws the car actually to visible canvas
@@ -60,17 +61,17 @@ function drawCanvas() {
 		carX = -carWidth - 10;							// We could also reverse the speed dx *= -1;
 }
 
+function drawGrass() {
+	var grad = c.createLinearGradient(0, c.canvas.height - grassHeight, 0, c.canvas.height);
+	grad.addColorStop(0, '#33CC00');
+	grad.addColorStop(1, '#66FF22');
+	c.fillStyle = grad;
+	c.lineWidth = 0;
+	c.fillRect(0, c.canvas.height - grassHeight, c.canvas.width, grassHeight);
+}
 
 function drawCar() {
-	
 	w.clearRect(0, 0, w.canvas.width, w.canvas.height);				// Now we have to clear the hidden canvas
-	//var x=document.getElementById("c");
-	var ctx=w;
-	var img=document.getElementByID("satan");
-	var pat=ctx.createPattern(img,"repeat");
-	//w.rect(0,0,150,100);
-	w.fillStyle=img;
-	w.fill();
 	w.strokeStyle = '#FF6600'; 										// We set the color for the border
 	w.lineWidth = 2;												// And the width of the border (in pixels)
 	w.fillStyle = '#FF9900';										// We also do set the color of the background
@@ -112,6 +113,7 @@ function speed(delta) {
 	dx = newRate / rate * dx;
 	rate = newRate;
 }
+
 
 </script>
 </head>
