@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Animations in HTML5 using the canvas element</title>
-	<p>Image to use:</p>
+	<p>Image to uswe:</p>
 	<img src="pics/satan.png" width="32" height="32" id="satan">
 	<button onclick="draw('no-repeat')">Repeat</button> 
-	<canvas id="myCanvas" width="6000" height="3000" style="border:1px solid #d3d3d3;">
+	<canvas id="myCanvas" width="600" height="300" style="border:1px solid #d3d3d3;">
 <script>
 	function draw(direction) {
     var c = document.getElementById("myCanvas");
@@ -14,7 +14,7 @@
     ctx.clearRect(0, 0, c.width, c.height); 
     var img = document.getElementById("satan")
     var pat = ctx.createPattern(img, direction);
-    ctx.rect(0, 0, 6000, 3000);
+    ctx.rect(0, 0, 600, 300);
     ctx.fillStyle = pat;
     ctx.fill();
 }
