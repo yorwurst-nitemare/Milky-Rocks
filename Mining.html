@@ -5,16 +5,17 @@
 <title>Animations in HTML5 using the canvas element</title>
 	<p>Image to use:</p>
 	<img src="pics/favicon.ico" width="16" height="16" id="satan">
-	<button onclick="draw('repeat')">Repeat</button> 
+	<button onclick="draw()">Repeat</button> 
 	<canvas id="myCanvas" width="16" height="16">
 <script>
-
+var dx = 5, rate = 1, ani;
+	
 function draw(direction) {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.clearRect(0, 0, c.width, c.height); 
     var img = document.getElementById("satan")
-    var pat = ctx.createPattern(img, direction);
+    var pat = ctx.createPattern(img, 'repeat');
     ctx.rect(0, 0, 600, 300);
     ctx.fillStyle = pat;
     ctx.fill();
@@ -43,7 +44,7 @@ function draw(direction) {
 	car.width = carWidth;
 	w = car.getContext('2d');						// Now we can set the car canvas
 })(); // Executed directly
-
+*/
 function play(s) {							// The referenced function, s is the button
 	if(ani) {								// If ani is not NULL we have an animation
 		clearInterval(ani);					// So we clear (stop) the animation
@@ -53,10 +54,10 @@ function play(s) {							// The referenced function, s is the button
 		ani = setInterval(drawCanvas, 40);	// We are starting the animation with 25 fps
 		s.innerHTML = 'Pause';				// Renaming the button
 	}
-}
+} 
 
 function init() {
-	c = document.getElementById('canvas').getContext('2d');
+	c = document.getElementById('myCanvas').getContext('2d');
 	drawCanvas();
 }
 
@@ -74,7 +75,7 @@ function drawCanvas() {
 	if(carX > c.canvas.width)							// We keep some periodic boundary conditions
 		carX = -carWidth - 10;							// We could also reverse the speed dx *= -1;
 }
-
+/*
 function drawGrass() {
 	//var grad = c.createLinearGradient(0, c.canvas.height - grassHeight, 0, c.canvas.height);
 	//grad.addColorStop(0, '#33CC00');
