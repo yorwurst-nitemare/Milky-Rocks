@@ -40,19 +40,14 @@ function doit() {
   var pos = 0;
   var id = setInterval(frame, 5);
   function frame() {
-	  if (elem.style.right==0) {
-		 var hit = true;
-	  }
-	  else if (elem.style.left==0) {
-	  	var hit = false;
-	  }
-    //if (hit) {
+
+    if (elem.style.right>10) {
       pos++; 
       elem.style.right = pos + 'px';
-  //  } else {
+   } else {
       pos++; 
-    //  elem.style.left = pos + 'px'; 
-   // }
+      elem.style.left = pos + 'px'; 
+   }
 	  
   }
 }
