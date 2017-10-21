@@ -40,7 +40,8 @@ function doit() {
   var c = 100;
   var id = setInterval(frame, 5);
   function frame() {
-
+	if (c==1) {pos=0;}
+	else if (pos==100){c=100;}
      if (pos<100) {
       pos++; 
       elem.style.left = pos + 'px';
@@ -49,8 +50,7 @@ function doit() {
      c--; 
      elem.style.left = c + 'px'; 
    }
-	if (c==1) {pos=0;}
-	else if (pos==100){c=100;}
+
   }
 }
 	  
