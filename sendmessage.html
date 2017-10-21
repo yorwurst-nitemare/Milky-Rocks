@@ -16,14 +16,15 @@
 
 
   <script>
-    train.onClick function() {
+    train.onclick = function() {
       let start = Date.now();
 
       let timer = setInterval(function() {
         let timePassed = Date.now() - start;
 
-        train.style.left = timePassed / 1000 + '5px';
-        train.style.up = timePassed/20 + '5px'; 
+        train.style.left = timePassed / 5 + '5px';
+        train.style.up = timePassed/5 + '5px'; 
+
         if (timePassed > 2000) clearInterval(timer);
 
       }, 20);
