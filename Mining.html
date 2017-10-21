@@ -3,11 +3,24 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Animations in HTML5 using the canvas element</title>
-	<p>Image to uswee:</p>
+	<p>Image to use:</p>
 	<img src="pics/satan.png" id="satan" width="32" height="32">
+	<button onclick="draw('repeat')">Repeat</button> 
+	<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
 <script>
+	function draw(direction) {
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.clearRect(0, 0, c.width, c.height); 
+    var img = document.getElementById("lamp")
+    var pat = ctx.createPattern(img, direction);
+    ctx.rect(0, 0, 150, 100);
+    ctx.fillStyle = pat;
+    ctx.fill();
+}
 
-var	dx = 5,				// Velocity at rate 1
+
+/*var	dx = 5,				// Velocity at rate 1
 	rate = 1, 			// The current playback rate
 	ani,				// The current animation loop
 	c,					// (Drawing) Canvas Context
@@ -117,7 +130,7 @@ function speed(delta) {
 	var newRate = Math.max(rate + delta, 0.1);
 	dx = newRate / rate * dx;
 	rate = newRate;
-}
+}*/
 
 
 </script>
