@@ -15,16 +15,25 @@ var y = Math.floor((Math.random() * 10000000) + 100000);
      <img src="pics/troll1.jpe" id="satan">
     	<button onclick="draw()">Repeat</button> 
 	    <canvas id="myCanvas"></canvas>
- <style>
+<style>
 #container {
+  width: 400px;
+  height: 400px;
   position: relative;
-  background-image: url("pics/troll2.jpe");
+  background: white;
 }
- </style>
-<div id ="container"></div>
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
+</style>
+<div id ="container">
+	<div>id = "animate"</div></div>
 <script>
 function() {
-  var elem = document.getElementById("satan");   
+  var elem = document.getElementById("animate");   
   var pos = 0;
   var id = setInterval(frame, 5);
   function frame() {
