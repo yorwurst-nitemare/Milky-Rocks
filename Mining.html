@@ -5,7 +5,7 @@
 <title>Animations in HTML5 using the canvas element</title>
 	<p>Image to use:</p>
 	<img src="pics/satan.png" id="satan" width="32" height="32">
-	<script>
+<script>
 
 var	dx = 5,				// Velocity at rate 1
 	rate = 1, 			// The current playback rate
@@ -68,8 +68,8 @@ function drawCar() {
 	var ctx=w;
 	var img=document.getElementByID("satan");
 	var pat=ctx.createPattern(img,"repeat");
-	w.rect(0,0,150,100);
-	w.fillStyle=pat;
+	//w.rect(0,0,150,100);
+	w.fillStyle=img;
 	w.fill();
 	w.strokeStyle = '#FF6600'; 										// We set the color for the border
 	w.lineWidth = 2;												// And the width of the border (in pixels)
