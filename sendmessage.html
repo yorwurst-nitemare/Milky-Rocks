@@ -16,7 +16,7 @@
 
 
   <script>
-    train.onclick = function() {
+    function doit() {
       let start = Date.now();
 
       let timer = setInterval(function() {
@@ -29,6 +29,7 @@
 
       }, 500);
     }
+    document.getElementById("demo").innerHTML = doit();
   </script>
 
 
