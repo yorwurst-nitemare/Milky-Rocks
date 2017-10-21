@@ -40,9 +40,15 @@ function doit() {
   var pos = 0;
   var id = setInterval(frame, 5);
   function frame() {
-    if (elem.style.right == 0 || elem.style.left == 0) {
+	  if (elem.style.right==0) {
+		 var hit = true;
+	  }
+	  else if (elem.style.left==0) {
+	  	var hit = false;
+	  }
+    if (hit) {
       pos++; 
-      elem.stye.right = pos + 'px';
+      elem.style.right = pos + 'px';
     } else {
       pos++; 
       elem.style.left = pos + 'px'; 
