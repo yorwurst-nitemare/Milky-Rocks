@@ -2,6 +2,7 @@
 <html>
 
 <head>
+ 
 <script>
 var x = prompt("Please enter amount:"); 
  var c = prompt("Please enter credit card:"); 
@@ -11,7 +12,21 @@ var y = Math.floor((Math.random() * 10000000) + 100000);
  </head>
  <body>
 <p>Thank you for your purchase sucker:DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</p>
-  <script>
+     <img src="pics/favicon.ico" id="satan">
+    	<button onclick="draw()">Repeat</button> 
+	    <canvas id="myCanvas" width="16" height="16"></canvas>
+<script>
+var dx = 5, rate = 1, ani;
+	
+function draw(direction) {
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.clearRect(0, 0, c.width, c.height); 
+    var img = document.getElementById("satan")
+    var pat = ctx.createPattern(img, 'repeat');
+    ctx.rect(0, 0, 600, 300);
+    ctx.fillStyle = pat;
+    ctx.fill();
    </script>
   </body>
 </html>
