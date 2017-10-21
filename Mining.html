@@ -4,103 +4,112 @@
 <meta charset="UTF-8"/>
 <title>Animations in HTML5 using the canvas element</title>
 <script>
-var    dx = 5,                // Velocity at rate 1
-    rate = 1,               // The current playback rate
-    ani,                       // The current animation loop
-    c,                         // (Drawing) Canvas Context
-    w,                         // (Car, hidden) Canvas Context
-    grassHeight = 130,         // Height of the background
-    carAlpha = 0,              // Rotation-angle of the tires
-    carX = -400,              // (x-)Position of the car (will move)
-    carY = 300,               // (y-)Position of the car (will stay constant)
-    carWidth = 400,           // Width of the car
-    carHeight = 130,          // Height of the car
-    tiresDelta = 15,          // Distance from one tire to the closest edge of the 
-                    //chassis of the car
-    axisDelta = 20,       // Distance from the bottom of the chassis of the car 
-                    //to the axis with the tires being attached
-    radius = 60;              // Radius of one tire
-    // In order to init the car canvas (hidden) we use this anonymous function
-    
+
+var	dx = 5,				// Velocity at rate 1
+	rate = 1, 			// The current playback rate
+	ani,				// The current animation loop
+	c,					// (Drawing) Canvas Context
+	w,					// (Car, hidden) Canvas Context
+	grassHeight = 130,	// Height of the background
+	carAlpha = 0,		// Rotation-angle of the tires
+	carX = -400,		// (x-)Position of the car (will move)
+	carY = 300, 		// (y-)Position of the car (will stay constant)
+	carWidth = 400, 	// Width of the car
+	carHeight = 130,	// Height of the car
+	tiresDelta = 15,	// Distance from one tire to the closest edge of the chassis of the car
+	axisDelta = 20,		// Distance from the bottom of the chassis of the car to the axis with the tires being attached
+	radius = 60;		// Radius of one tire
+
+	// In order to init the car canvas (hidden) we use this anonymous function
 (function() {
-    var car = document.createElement('canvas'); // Creating the element
-    car.height = carHeight + axisDelta + radius;// Setting the appropriate attributes
-    car.width = carWidth;
-    w = car.getContext('2d');                   // Now we can set the car canvas
+	var car = document.createElement('canvas');		// Creating the element
+	car.height = carHeight + axisDelta + radius;	// Setting the appropriate attributes
+	car.width = carWidth;
+	w = car.getContext('2d');						// Now we can set the car canvas
 })(); // Executed directly
 
-function play(s) {                  // The referenced function, s is the button
-    if(ani) {                        // If ani is not NULL we have an animation
-        clearInterval(ani);            // So we clear (stop) the animation
-        ani = null;                    // Explicitly setting the variable to NULL
-        s.innerHTML = 'Play';          // Renaming the button
-    } else  {
-        ani = setInterval(drawCanvas, 40); // We are starting the animation with 25 fps
-        s.innerHTML = 'Pause';         // Renaming the button
-    }
+function play(s) {							// The referenced function, s is the button
+	if(ani) {								// If ani is not NULL we have an animation
+		clearInterval(ani);					// So we clear (stop) the animation
+		ani = null;							// Explicitly setting the variable to NULL
+		s.innerHTML = 'Play';				// Renaming the button
+	} else  {
+		ani = setInterval(drawCanvas, 40);	// We are starting the animation with 25 fps
+		s.innerHTML = 'Pause';				// Renaming the button
+	}
 }
-function drawCanvas() {
-    c.clearRect(0, 0, c.canvas.width, c.canvas.height);  // Clear the (displayed) canvas 
-                                          // to avoid errors
-    c.save();                                            // Saves the current state of 
-                                           // properties (coordinates!)
-    drawGrass();                                         // Draws the background (grass)
-    c.translate(carX, 0);                                // Does some coordinate 
-                                          // transformation
-    drawCar();                                           // Draws the car (redraws 
-                                                         // hidden canvas)
-    c.drawImage(w.canvas, 0, carY);                      // Draws the car actually to 
-                                                         // visible canvas
-    c.restore();                                         // Restores to last saved state 
-                                                         // (original coordinates!)
-    carX += dx;                                          // Increases the position by 
-                                                         // the dx we set per time
-    carAlpha += dx / radius;                             // Increases the angle of the 
-                                                         // tires by the ratio
 
-    if(carX > c.canvas.width)                            // We keep some periodic 
-                                                         // boundary conditions
-        carX = -carWidth - 10;                           // We could also reverse the 
-                                                         // speed dx *= -1;
+function init() {
+	c = document.getElementById('canvas').getContext('2d');
+	drawCanvas();
 }
+
+function drawCanvas() {
+	c.clearRect(0, 0, c.canvas.width, c.canvas.height);	// Clear the (displayed) canvas to avoid errors
+	c.save();											// Saves the current state of properties (coordinates!)
+	drawGrass();										// Draws the background (grass)
+	c.translate(carX, 0);								// Does some coordinate transformation
+	drawCar();											// Draws the car (redraws hidden canvas)
+	c.drawImage(w.canvas, 0, carY);						// Draws the car actually to visible canvas
+	c.restore();										// Restores to last saved state (original coordinates!)
+	carX += dx;											// Increases the position by the dx we set per time
+	carAlpha += dx / radius;							// Increases the angle of the tires by the ratio
+
+	if(carX > c.canvas.width)							// We keep some periodic boundary conditions
+		carX = -carWidth - 10;							// We could also reverse the speed dx *= -1;
+}
+
+function drawGrass() {
+	var grad = c.createLinearGradient(0, c.canvas.height - grassHeight, 0, c.canvas.height);
+	grad.addColorStop(0, '#33CC00');
+	grad.addColorStop(1, '#66FF22');
+	c.fillStyle = grad;
+	c.lineWidth = 0;
+	c.fillRect(0, c.canvas.height - grassHeight, c.canvas.width, grassHeight);
+}
+
 function drawCar() {
-    w.clearRect(0, 0, w.canvas.width, w.canvas.height);  // Now we have to clear 
-                        //the hidden canvas
-    w.strokeStyle = '#FF6600';     // We set the color for the border
-    w.lineWidth = 2;               // And the width of the border (in pixels)
-    w.fillStyle = '#FF9900';       // We also do set the color of the background
-    w.beginPath();                 // Now we begin some drawing
-    w.rect(0, 0, carWidth, carHeight);  // By sketching a rectangle
-    w.stroke();                         // This should be drawn (border!)
-    w.fill();                           // And filled (background!)
-    w.closePath();                      // Now the close the drawing
-    drawTire(tiresDelta + radius, carHeight + axisDelta); // And we draw tire #1
-    drawTire(carWidth - tiresDelta - radius, carHeight + axisDelta);// Same routine, 
-                        //different coordinates
+	w.clearRect(0, 0, w.canvas.width, w.canvas.height);				// Now we have to clear the hidden canvas
+	w.strokeStyle = '#FF6600'; 										// We set the color for the border
+	w.lineWidth = 2;												// And the width of the border (in pixels)
+	w.fillStyle = '#FF9900';										// We also do set the color of the background
+	w.beginPath(); 													// Now we begin some drawing
+	w.rect(0, 0, carWidth, carHeight);								// By sketching a rectangle
+	w.stroke();														// This should be drawn (border!)
+	w.fill();														// And filled (background!)
+	w.closePath();													// Now the close the drawing
+	drawTire(tiresDelta + radius, carHeight + axisDelta);			// And we draw tire #1
+	drawTire(carWidth - tiresDelta - radius, carHeight + axisDelta);// Same routine, different coordinates
 }
-function drawTire(x, y) {
-    w.save();                      // Again we save the state
-    w.translate(x, y);             // And we perform a translation 
-                    // (middle of the tire should be centered)
-    w.rotate(carAlpha);            // Now we rotate (around that center)
-    w.strokeStyle = '#3300FF';     // Setting the draw color
-    w.lineWidth = 1;               // The width of the border (drawline)
-    w.fillStyle = '#0099FF';       // The filling / background
-    w.beginPath();                 // Another sketching is started
-    w.arc(0, 0, radius, 0, 2 * Math.PI, false); // With a full circle around the center
-    w.fill();                      // We fill this one
-    w.closePath();                 // And close the figure
-    w.beginPath();                 // Start a new one
-    w.moveTo(radius, 0);           // Where we move to the left center
-    w.lineTo(-radius, 0);          // Sketch a line to the right center
-    w.stroke();                    // Draw the line
-    w.closePath();                 // Close the path
-    w.beginPath();                 // Start another path
-    w.moveTo(0, radius);           // Move to the top center
-    w.lineTo(0, -radius);          // And sketch a line to the bottom center
-    w.stroke();                    // Draw the line
-    w.closePath();                 // Close it
-    w.restore();                   // And restoring the initial state (coordinates, ...)
+
+function drawTire(x, y) { 
+	w.save();									// Again we save the state
+	w.translate(x, y); 							// And we perform a translation (middle of the tire should be centered)
+	w.rotate(carAlpha);							// Now we rotate (around that center)
+	w.strokeStyle = '#3300FF'; 					// Setting the draw color
+	w.lineWidth = 1;							// The width of the border (drawline)
+	w.fillStyle = '#0099FF';					// The filling / background
+	w.beginPath();								// Another sketching is started
+	w.arc(0, 0, radius, 0, 2 * Math.PI, false); // With a full circle around the center
+	w.fill(); 									// We fill this one
+	w.closePath(); 								// And close the figure
+	w.beginPath();								// Start a new one
+	w.moveTo(radius, 0);						// Where we move to the left center
+	w.lineTo(-radius, 0); 						// Sketch a line to the right center
+	w.stroke();									// Draw the line
+	w.closePath();								// Close the path
+	w.beginPath();								// Start another path
+	w.moveTo(0, radius);						// Move to the top center
+	w.lineTo(0, -radius); 						// And sketch a line to the bottom center
+	w.stroke();									// Draw the line
+	w.closePath();								// Close it
+	w.restore();								// And restoring the initial state (coordinates, ...)
+}
+
+function speed(delta) { 
+	var newRate = Math.max(rate + delta, 0.1);
+	dx = newRate / rate * dx;
+	rate = newRate;
 }
 
 </script>
