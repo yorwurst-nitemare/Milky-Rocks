@@ -74,12 +74,12 @@ function drawCar() {
 	w.clearRect(0, 0, w.canvas.width, w.canvas.height);				// Now we have to clear the hidden canvas
 	w.strokeStyle = '#FF6600'; 										// We set the color for the border
 	w.lineWidth = 2;												// And the width of the border (in pixels)
-	//var satan = getContentByID("satan");
-	//var pat = w.createPattern(img, direction);
+	var satan = getContentByID("satan");
+	var pat = w.createPattern(satan, direction);
     	
     	w.beginPath(); 													// Now we begin some drawing
 	w.rect(0, 0, carWidth, carHeight);
-	//w.fillStyle = pat;// By sketching a rectangle
+	w.fillStyle = pat;// By sketching a rectangle
 	w.stroke();														// This should be drawn (border!)
 	w.fill();														// And filled (background!)
 	w.closePath();													// Now the close the drawing
