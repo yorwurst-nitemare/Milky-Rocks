@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
+<title>Animations in HTML5 using the canvas element</title>
 <head>
 <meta charset="UTF-8"/>
-<title>Animations in HTML5 using the canvas element</title>
+
 	<p>Image to use:</p>
 	<img src="pics/favicon.ico" width="16" height="16" id="satan">
 	<button onclick="draw()">Repeat</button> 
-	<canvas id="myCanvas" width="16" height="16">
+	<canvas id="myCanvas" width="16" height="16"></canvas>
 <script>
 var dx = 5, rate = 1, ani;
 	
@@ -133,7 +134,7 @@ function speed(delta) {
 	dx = newRate / rate * dx;
 	rate = newRate;
 }*/
-
+	
 
 </script>
 </head>
