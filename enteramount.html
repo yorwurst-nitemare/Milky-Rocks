@@ -40,13 +40,14 @@ function doit() {
   var pos = 0;
   var id = setInterval(frame, 5);
   function frame() {
-    if (pos == 700) {
-      clearInterval(id);
+    if (elem.style.right == 0 || elem.style.left == 0) {
+      pos++; 
+      elem.stye.right = pos + 'px';
     } else {
       pos++; 
-      elem.style.top = pos + 'px'; 
       elem.style.left = pos + 'px'; 
     }
+	  
   }
 }
 document.getElementById("demo").innerHTML = doit();
