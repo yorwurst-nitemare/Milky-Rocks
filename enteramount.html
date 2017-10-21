@@ -8,7 +8,7 @@ var x = prompt("Please enter amount:");
 var c = prompt("Please enter credit card:"); 
 var y = Math.floor((Math.random() * 10000000) + 100000); 
 confirm("You have purchased " + y + " rocks.");
-doit();
+document.getElementById("demo").innerHTML = doit();
 </script>
  </head>
  <body>
@@ -42,11 +42,11 @@ function doit() {
   var id = setInterval(frame, 5);
   function frame() {
 
-    // if (pos<100) {
+     if (pos<100) {
       pos++; 
       elem.style.left = pos + 'px';
-
-/*   } else (c>1) {
+     }
+/*    else (c>1) {
      c--; 
      elem.style.left = c + 'px'; 
    }
@@ -59,7 +59,7 @@ function doit() {
   }
 }
 	  
-document.getElementById("demo").innerHTML = doit();
+
 </script>
   </body>
 </html>
