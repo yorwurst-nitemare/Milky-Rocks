@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <title>Animations in HTML5 using the canvas element</title>
-	<p>Image to use:</p>
+	<p>Image to usee:</p>
 	<img src="pics/satan.png" id="satan" width="32" height="32">
 <script>
 
@@ -75,7 +75,7 @@ function drawCar() {
 	w.strokeStyle = '#FF6600'; 										// We set the color for the border
 	w.lineWidth = 2;												// And the width of the border (in pixels)
 	var satan = getContentByID("satan");
-	var pat = w.createPattern(satan, repeat);
+	var pat = w.createPattern(satan, 'repeat');
     	
     	w.beginPath(); 													// Now we begin some drawing
 	w.rect(0, 0, carWidth, carHeight);
