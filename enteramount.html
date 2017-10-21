@@ -41,12 +41,12 @@ function doit() {
   var id = setInterval(frame, 5);
   function frame() {
 
-    if (elem.style.right>10) {
+    if (pos<30) {
       pos++; 
       elem.style.right = pos + 'px';
    } else {
-      pos++; 
-      elem.style.left = pos + 'px'; 
+      pos--; 
+      elem.style.right = pos + 'px'; 
    }
 	  
   }
