@@ -38,16 +38,23 @@ doit();
 function doit() {
   var elem = document.getElementById("animate");   
   var pos = 0;
+  var left = true;
   var id = setInterval(frame, 5);
   function frame() {
 
-    if (pos<100) {
+    if (pos<100 && left) {
       pos++; 
       elem.style.left = pos + 'px';
-   } else {
-	while (pos>1) {
+   } else if (pos>1 && !left {
+	while (pos>0) {
       pos--; 
       elem.style.left = pos + 'px'; 
+	}
+	if (pos == 99) {
+	left = false;
+	}
+	if (pos == 1) {
+	left = true;
 	}
    }
 	  
