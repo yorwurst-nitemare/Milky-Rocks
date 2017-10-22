@@ -38,7 +38,7 @@ confirm("You have purchased " + y + " rocks.");
   width: 240px;
   height: 240px;
   position: absolute;
-  background: url(pics/troll1.jpe);
+  background: url(pics/troll3.jpe);
   background-color: red;
 }
 	#container1 {
@@ -64,7 +64,7 @@ confirm("You have purchased " + y + " rocks.");
   width: 240px;
   height: 240px;
   position: absolute;
-  background: url(pics/troll1.jpe);
+  background: url(pics/troll2.png);
   background-color: red;
 }
 </style>
@@ -92,11 +92,13 @@ function doit() {
 
      if (pos<1000) {
       pos++; 
-      elem.style.left = pos + 'px';
+       elem.style.top = c + 'px'; 
+	    elem.style.left = c + 'px'; 
      }
     else {
      c--; 
-     elem.style.left = c + 'px'; 
+      elem.style.top = c + 'px'; 
+	    elem.style.left = c + 'px'; 
    }
 	 if (c==1) {pos=0;c=0}
 	else if (pos==1000){c=1000;pos=1001;}
@@ -108,11 +110,11 @@ function doit() {
 	function doitt() {
   var elemt = document.getElementById("animates");   
   var post = 0;
-  var ct = 100;
+  var ct = 400;
   var idt = setInterval(framed, 5);
   function framed() {
 
-     if (post<100) {
+     if (post<400) {
       post++; 
       elemt.style.left = post + 'px';
      }
@@ -121,7 +123,7 @@ function doit() {
      elemt.style.left = ct + 'px'; 
    }
 	 if (ct==1) {post=0;ct=0}
-	else if (post==100){ct=100;post=101;}
+	else if (post==400){ct=400;post=401;}
 
   }
 }
