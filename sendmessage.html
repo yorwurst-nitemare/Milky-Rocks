@@ -12,7 +12,7 @@
 
 <body>
 
-  <img id="train" src="/yorwurst-nitemare.github.io/pics/rocketsprite2.png">
+  <img id="train" src="https://js.cx/clipart/train.gif">
 
 
   <script>
@@ -23,14 +23,11 @@
         let timePassed = Date.now() - start;
 
         train.style.left = timePassed / 5 + '5px';
-        train.style.up = timePassed/5 + '5px'; 
 
-       if (timePassed > 15000000) clearInterval(timer);
- +        if (timePassed > 1500) clearInterval(timer);
-  
- -      }, 500);
- +      }, 50000);
-      }
+        if (timePassed > 500000) clearInterval(timer);
+
+      }, 5000);
+    }
     document.getElementById("demo").innerHTML = doit();
   </script>
 
@@ -38,6 +35,3 @@
 </body>
 
 </html>
-
-
-
