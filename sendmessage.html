@@ -12,20 +12,22 @@
 
 <body>
 
-  <img id="train" src="/yorwurst-nitemare.github.io/pics/rocketsprite.png2">
+  <img id="/yorwurst-nitemare.github.io/pics/rocketsprite2.png">
 
 
   <script>
-    function doit() {
+    train.onclick = function() {
       let start = Date.now();
+
       let timer = setInterval(function() {
         let timePassed = Date.now() - start;
-        train.style.left = timePassed / 5 + '5px';
-        train.style.up = timePassed/5 + '5px'; 
-        if (timePassed > 15000000) clearInterval(timer);
-      }, 500);
+
+        train.style.left = timePassed / 5 + 'px';
+
+        if (timePassed > 2000) clearInterval(timer);
+
+      }, 20);
     }
-    document.getElementById("demo").innerHTML = doit();
   </script>
 
 
