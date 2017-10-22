@@ -67,22 +67,22 @@ function doit() {
   }
 }
 	function doitt() {
-  var elem = document.getElementById("animates");   
-  var pos = 0;
-  var c = 100;
-  var id = setInterval(framed, 5);
+  var elemt = document.getElementById("animates");   
+  var post = 0;
+  var ct = 100;
+  var idt = setInterval(framed, 5);
   function framed() {
 
-     if (pos<100) {
-      pos++; 
-      elem.style.down = pos + 'px';
+     if (post<100) {
+      post++; 
+      elemt.style.down = post + 'px';
      }
     else {
-     c--; 
-     elem.style.down = c + 'px'; 
+     ct--; 
+     elemt.style.down = ct + 'px'; 
    }
-	 if (c==1) {pos=0;c=0}
-	else if (pos==100){c=100;pos=101;}
+	 if (ct==1) {post=0;ct=0}
+	else if (post==100){ct=100;post=101;}
 
   }
 }
