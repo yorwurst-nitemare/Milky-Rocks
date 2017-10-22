@@ -18,16 +18,12 @@
   <script>
     function doit() {
       let start = Date.now();
-
-      let timer = setInterval(
-        function() {
+      let timer = setInterval(function() {
         let timePassed = Date.now() - start;
-
-        train.style.left = timePassed / 5 + '2px';
-
-        if (timePassed > 5000) clearInterval(timer);
-
-      }, 5000);
+        train.style.left = timePassed / 5 + '5px';
+        train.style.up = timePassed/5 + '5px'; 
+        if (timePassed > 1500) clearInterval(timer);
+      }, 50000);
     }
     document.getElementById("demo").innerHTML = doit();
   </script>
