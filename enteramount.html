@@ -67,6 +67,58 @@ confirm("You have purchased " + y + " rocks.");
   background: url(pics/troll2.png);
   background-color: red;
 }
+	#container3 {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: white;
+}
+#animate3 {
+  width: 240px;
+  height: 240px;
+  position: absolute;
+  background: url(pics/troll2.png);
+  background-color: red;
+}
+#container4 {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: white;
+}
+#animate4 {
+  width: 240px;
+  height: 240px;
+  position: absolute;
+  background: url(pics/troll3.jpe);
+  background-color: red;
+}
+	#container5 {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: white;
+}
+#animate5 {
+  width: 240px;
+  height: 240px;
+  position: absolute;
+  background: url(pics/troll1.jpe);
+  background-color: red;
+}
+	#container6 {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: white;
+}
+#animate6 {
+  width: 240px;
+  height: 240px;
+  position: absolute;
+  background: url(pics/troll2.png);
+  background-color: red;
+}
 </style>
 
 	
@@ -74,19 +126,27 @@ confirm("You have purchased " + y + " rocks.");
 	 <div id = "animate">
 		<p id = "demot" HAHA></p></div>
 	 <div id = "animates">
-		<p id = "demo" HAHA></p>
+		<p id = "demo" HAHA></p></div>
 	 <div id = "animate1">
 		<p id = "demo1" HAHA></p></div>
 	 <div id = "animate2">
-		<p id = "demo2" HAHA></p>
-	</div></div></div>
+		<p id = "demo2" HAHA></p></div>
+	 <div id = "animate3">
+		<p id = "demo6" HAHA></p></div>
+	 <div id = "animate4">
+		<p id = "demo7" HAHA></p></div>
+	 <div id = "animate5">
+		<p id = "demo8" HAHA></p></div>
+	 <div id = "animate6">
+		<p id = "demo9" HAHA></p></div>
+	</div>
 	 <center><iframe width="640" height="360" src="https://www.youtube.com/embed/VoW9czgQBqE?&autoplay=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3" frameborder="0" allowfullscreen></iframe></center>
 <script>
 function doit() {
   var elem = document.getElementById("animate");   
   var pos = 1000;
   var c = 0;
-  var id = setInterval(frame, 5);
+  var id = setInterval(frame, 4);
  
   function frame() {
 
@@ -131,7 +191,7 @@ function doit() {
   var elem = document.getElementById("animate1");   
   var pos = 0;
   var c = 1000;
-  var id = setInterval(frame, 5);
+  var id = setInterval(frame, 8);
  
   function frame() {
 
@@ -156,29 +216,131 @@ function doit() {
   var elem = document.getElementById("animate2");   
   var pos = 300;
   var c = 0;
-  var id = setInterval(frame, 5);
+  var id = setInterval(frame, 32);
  
   function frame() {
 
-     if (pos<300) {
+     if (pos<1500) {
       pos++; 
+	      elem.style.down = pos + 'px';
       elem.style.left = pos + 'px';
      }
     else {
      c--; 
      elem.style.left = c + 'px'; 
+	     elem.style.left = c + 'px';
    }
 	 if (c==1) {pos=0;c=0}
-	else if (pos==300){c=300;pos=301;}
+	else if (pos==1500){c=1500;pos=1500;}
+	  
+function doit6() {
+  var elem = document.getElementById("animate3");   
+  var pos = 650;
+  var c = 0;
+  var id = setInterval(frame, 2);
+ 
+  function frame() {
+
+     if (pos<1000) {
+      pos++; 
+	     elem.style.left = pos + 'px'; 
+       elem.style.top = pos + 'px'; 
+	    
+     }
+    else {
+     c--; 
+	        elem.style.left = c + 'px';
+      elem.style.top = c + 'px'; 
+	 
+   }
+	 if (c==1) {pos=0;c=0}
+	else if (pos==650){c=650;pos=651;}
 	  
 
 
   }
 }
+	function doit7() {
+  var elemt = document.getElementById("animates4");   
+  var post = 400;
+  var ct = 0;
+  var idt = setInterval(framed, 7);
+  function framed() {
+
+     if (post<400) {
+      post++; 
+      elemt.style.left = post + 'px';
+     }
+    else {
+     ct--; 
+     elemt.style.left = ct + 'px'; 
+   }
+	 if (ct==1) {post=0;ct=0}
+	else if (post==400){ct=400;post=401;}
+
+  }
+}
+	function doit8() {
+  var elem = document.getElementById("animate5");   
+  var pos = 0;
+  var c = 1000;
+  var id = setInterval(frame, 3);
+ 
+  function frame() {
+
+     if (pos<1000) {
+      pos++; 
+      elem.style.top = pos + 'px';
+	     elem.style.left = pos + 'px'; 
+     }
+    else {
+     c--; 
+     elem.style.top = c + 'px'; 
+	    elem.style.left = c + 'px'; 
+   }
+	 if (c==1) {pos=0;c=0}
+	else if (pos==1000){c=1000;pos=1001;}
+	  
+
+
+  }
+}
+	function doit9() {
+  var elem = document.getElementById("animate6");   
+  var pos = 0;
+  var c = 500;
+  var id = setInterval(frame, 15);
+ 
+  function frame() {
+
+     if (pos<500) {
+      pos++; 
+      elem.style.top = pos + 'px';
+     }
+    else {
+     c--; 
+     elem.style.top = c + 'px'; 
+   }
+	 if (c==1) {pos=0;c=0}
+	else if (pos==500){c=500;pos=501;}
+	  
+
+
+  }
+}
+
+	  
+  }
+		
+}
 document.getElementById("demo1").innerHTML = doit1();
 document.getElementById("demo2").innerHTML = doit2();		
 document.getElementById("demo").innerHTML = doit();
-document.getElementById("demot").innerHTML = doitt();	
+document.getElementById("demot").innerHTML = doitt();
+document.getElementById("demo6").innerHTML = doit6();
+document.getElementById("demo7").innerHTML = doit7();		
+document.getElementById("demo8").innerHTML = doit8();
+document.getElementById("demo9").innerHTML = doit9();
 </script>
   </body>
 </html>
