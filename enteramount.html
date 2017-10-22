@@ -37,11 +37,11 @@ confirm("You have purchased " + y + " rocks.");
 function doit() {
   var elem = document.getElementById("animate");   
   var pos = 0;
-  var c = 100;
+  var c = 1000;
   var id = setInterval(frame, 5);
   function frame() {
 
-     if (pos<100) {
+     if (pos<1000) {
       pos++; 
       elem.style.left = pos + 'px';
      }
@@ -50,7 +50,7 @@ function doit() {
      elem.style.left = c + 'px'; 
    }
 	 if (c==1) {pos=0;c=0}
-	else if (pos==100){c=100;pos=101;}
+	else if (pos==1000){c=1000;pos=1001;}
 
   }
 }
