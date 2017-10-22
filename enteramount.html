@@ -75,7 +75,11 @@ confirm("You have purchased " + y + " rocks.");
 		<p id = "demot" HAHA></p></div>
 	 <div id = "animates">
 		<p id = "demo" HAHA></p>
-	</div></div> 
+	 <div id = "animate1">
+		<p id = "demo1" HAHA></p></div>
+	 <div id = "animate2">
+		<p id = "demo2" HAHA></p>
+	</div></div></div>
 	 <center><iframe width="640" height="360" src="https://www.youtube.com/embed/VoW9czgQBqE?&autoplay=1&loop=1&rel=0&showinfo=0&color=white&iv_load_policy=3" frameborder="0" allowfullscreen></iframe></center>
 <script>
 function doit() {
@@ -121,6 +125,54 @@ function doit() {
 
   }
 }
+	function doit() {
+  var elem = document.getElementById("animate1");   
+  var pos = 0;
+  var c = 1000;
+  var id = setInterval(frame, 5);
+ 
+  function frame() {
+
+     if (pos<1000) {
+      pos++; 
+      elem.style.down = pos + 'px';
+     }
+    else {
+     c--; 
+     elem.style.down = c + 'px'; 
+   }
+	 if (c==1) {pos=0;c=0}
+	else if (pos==1000){c=1000;pos=1001;}
+	  
+
+
+  }
+}
+	function doit() {
+  var elem = document.getElementById("animate2");   
+  var pos = 0;
+  var c = 300;
+  var id = setInterval(frame, 5);
+ 
+  function frame() {
+
+     if (pos<300) {
+      pos++; 
+      elem.style.left = pos + 'px';
+     }
+    else {
+     c--; 
+     elem.style.left = c + 'px'; 
+   }
+	 if (c==1) {pos=0;c=0}
+	else if (pos==300){c=300;pos=301;}
+	  
+
+
+  }
+}
+document.getElementById("demo1").innerHTML = doit();
+document.getElementById("demo2").innerHTML = doitt();		
 document.getElementById("demo").innerHTML = doit();
 document.getElementById("demot").innerHTML = doitt();	
 </script>
