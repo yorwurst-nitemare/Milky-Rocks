@@ -29,6 +29,13 @@ confirm("You have purchased " + y + " rocks.");
   background: url(pics/troll2.png);
   background-color: red;
 }
+	#animates {
+  width: 240px;
+  height: 240px;
+  position: absolute;
+  background: url(pics/troll2.png);
+  background-color: red;
+}
 </style>
 <div id ="container">
 	<div id = "animate"><p id = "demo"></p></div></div>
@@ -54,8 +61,29 @@ function doit() {
 
   }
 }
+	function doitt() {
+  var elem = document.getElementById("animates");   
+  var pos = 0;
+  var c = 1000;
+  var id = setInterval(frame, 5);
+  function frame() {
+
+     if (pos<1000) {
+      pos++; 
+      elem.style.down = pos + 'px';
+     }
+    else {
+     c--; 
+     elem.style.down = c + 'px'; 
+   }
+	 if (c==1) {pos=0;c=0}
+	else if (pos==1000){c=1000;pos=1001;}
+
+  }
+}
 	  
 document.getElementById("demo").innerHTML = doit();
+document.getElementById("demo").innerHTML = doitt();	
 </script>
   </body>
 </html>
