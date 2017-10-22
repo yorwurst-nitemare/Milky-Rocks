@@ -4,13 +4,13 @@
 <head>
  
 <script>
-var x = prompt("Please enter amount:"); 
-var c = prompt("Please enter credit card:");
-var d = prompt("Please enter your security code and expiration date, and also you billing address (and SSN, birthdate, routing number & password, etc (the works)");
+prompt("Please enter amount:"); 
+prompt("Please enter credit card:");
+prompt("Please enter your security code and expiration date, and also you billing address (and SSN, birthdate, routing number & password, etc (the works)");
 var y = Math.floor((Math.random() * 10)); 
 	while (y > 0) {
-var s = prompt("The data you entered was erroneous. Please enter again:"):
-	c++;
+prompt("The data you entered was erroneous. Please enter again:"):
+	y--;
 	}
 confirm("Thank you for your purchase! Your data was false, but thankfully we were able to transfer your credit information from your PayPal account. You have paid for " + (y*y*100) + " rocks.");
 
