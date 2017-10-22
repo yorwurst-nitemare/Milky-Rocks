@@ -18,8 +18,11 @@ Your browser does not support the audio element.
 </audio> 
 
   <script>
-    fucntion doitt() {
-      let start = Date.now();
+    function doit() {
+ 
+
+  function framed() {
+  let start = Date.now();
       let timer = setInterval(function() {
         let timePassed = Date.now() - start;
         train.style.left = timePassed / 5 + '5px';
@@ -27,10 +30,13 @@ Your browser does not support the audio element.
         if (timePassed > 15000) clearInterval(timer);
       }, 20);
     }
-    document.getElementById(train).innerHTML = doit();
+}
+document.getElementById("demo").innerHTML = doit();
   </script>
 
 
 </body>
 
 </html>
+
+
