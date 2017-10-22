@@ -49,6 +49,7 @@ function doit() {
   var pos = 0;
   var c = 1000;
   var x = Math.random()*10;
+  var id = setInterval(frame, 5);
  
   function frame() {
 
@@ -63,7 +64,7 @@ function doit() {
 	 if (c==1) {pos=0;c=0}
 	else if (pos==1000){c=1000;pos=1001;}
 	  
-	   var id = setInterval(frame, x);
+
 
   }
 }
