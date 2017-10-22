@@ -48,7 +48,8 @@ function doit() {
   var elem = document.getElementById("animate");   
   var pos = 0;
   var c = 1000;
-  var id = setInterval(frame, 5);
+  var x = Math.random()*10;
+  var id = setInterval(frame, x);
   function frame() {
 
      if (pos<1000) {
