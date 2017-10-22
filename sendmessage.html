@@ -19,12 +19,13 @@
     function doit() {
       let start = Date.now();
 
-      let timer = setInterval(function()) {
+      let timer = setInterval(
+        function() {
         let timePassed = Date.now() - start;
 
-        train.style.left = timePassed / 5 + 'px';
+        train.style.left = timePassed / 5 + '2px';
 
-        if (timePassed > 500000) clearInterval(timer);
+        if (timePassed > 5000) clearInterval(timer);
 
       }, 5000);
     }
