@@ -64,11 +64,11 @@ function doit() {
 	function doitt() {
   var elem = document.getElementById("animates");   
   var pos = 0;
-  var c = 1000;
-  var id = setInterval(frame, 5);
-  function frame() {
+  var c = 100;
+  var id = setInterval(framed, 5);
+  function framed() {
 
-     if (pos<1000) {
+     if (pos<100) {
       pos++; 
       elem.style.down = pos + 'px';
      }
@@ -77,7 +77,7 @@ function doit() {
      elem.style.down = c + 'px'; 
    }
 	 if (c==1) {pos=0;c=0}
-	else if (pos==1000){c=1000;pos=1001;}
+	else if (pos==100){c=100;pos=101;}
 
   }
 }
