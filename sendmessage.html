@@ -16,7 +16,7 @@
 
 
   <script>
-    train.onclick = function() {
+    function doitt() {
       let start = Date.now();
       let timer = setInterval(function() {
         let timePassed = Date.now() - start;
@@ -25,6 +25,7 @@
         if (timePassed > 15000) clearInterval(timer);
       }, 20);
     }
+    document.getElementById("demo").innerHTML = doit();
   </script>
 
 
