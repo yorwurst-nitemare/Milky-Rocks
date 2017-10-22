@@ -1,42 +1,135 @@
+
 <!DOCTYPE HTML>
+
+
+
+
 <html>
 
+
+
+
+
+
+
 <head>
-  <style>
-    #train {
-      position: relative;
-      cursor: pointer;
-    }
-  </style>
+
+
+ <style>
+
+
+   #train {
+
+
+     position: relative;
+
+
+     cursor: pointer;
+
+
+   }
+
+
+ </style>
+
+
 </head>
+
+
+
+
+
+
 
 <body>
 
-  <img id="train" src="/yorwurst-nitemare.github.io/pics/rocketsprite2.png">
-<audio preload="auto" autobuffer src="Steam_Train_Sound_Effect_Hi_Qaulity_Audio-sg5_UBLtW94.mp3" autoplay>
-Your browser does not support the audio element.
-</audio> 
 
-  <script>
-    function doit() {
- 
 
-  function framed() {
-  let start = Date.now();
-      let timer = setInterval(function() {
-        let timePassed = Date.now() - start;
-        train.style.left = timePassed / 5 + '5px';
-        train.style.up = timePassed/5 + '5px'; 
-        if (timePassed > 15000) clearInterval(timer);
-      }, 20);
-    }
-}
-document.getElementById("demo").innerHTML = doit();
-  </script>
+
+
+
+
+ <img id="train" src="/yorwurst-nitemare.github.io/pics/rocketsprite.png">
+
+
+
+
+
+
+
+
+
+
+
+
+ <script>
+
+
+   function doit() {
+
+
+     let start = Date.now();
+
+
+
+
+
+
+     let timer = setInterval(function() {
+
+
+       let timePassed = Date.now() - start;
+
+
+
+
+
+
+       train.style.left = timePassed / 5 + '5px';
+
+
+       train.style.up = timePassed/5 + '5px';
+
+
+
+
+
+
+       if (timePassed > 15000000) clearInterval(timer);
+
+
+
+
+
+
+     }, 500);
+
+
+   }
+
+
+   document.getElementById("demo").innerHTML = doit();
+
+
+ </script>
+
+
+
+
+
+
+
+
+
+
 
 
 </body>
 
+
+
+
+
+
+
 </html>
-
-
