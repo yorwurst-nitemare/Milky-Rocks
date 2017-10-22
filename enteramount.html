@@ -29,7 +29,7 @@ confirm("You have purchased " + y + " rocks.");
   background: url(pics/troll2.png);
   background-color: red;
 }
-	#animates {
+#animates {
   width: 240px;
   height: 240px;
   position: absolute;
@@ -38,7 +38,10 @@ confirm("You have purchased " + y + " rocks.");
 }
 </style>
 <div id ="container">
-	<div id = "animate"><div id = "animates"><p id = "demo"></p></div></div></div>
+	<div id = "animate">
+		<div id = "animates">
+			<p id = "demo"></p>
+			<p id = "demot"></p></div></div></div>
 	 
 <script>
 function doit() {
@@ -83,7 +86,7 @@ function doit() {
 }
 	  
 document.getElementById("demo").innerHTML = doit();
-document.getElementById("demo").innerHTML = doitt();	
+document.getElementById("demot").innerHTML = doitt();	
 </script>
   </body>
 </html>
