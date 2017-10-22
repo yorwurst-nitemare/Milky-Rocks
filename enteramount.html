@@ -12,7 +12,7 @@ confirm("You have purchased " + y + " rocks.");
 </script>
  </head>
  <body>
-<p>Thank you for your purchase :=DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</p>
+<p>Thank you for your purchase :DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD</p>
 
 <style>
 #container {
@@ -136,10 +136,12 @@ function doit() {
      if (pos<1000) {
       pos++; 
       elem.style.down = pos + 'px';
+	     elem.style.left = c + 'px'; 
      }
     else {
      c--; 
      elem.style.down = c + 'px'; 
+	    elem.style.left = c + 'px'; 
    }
 	 if (c==1) {pos=0;c=0}
 	else if (pos==1000){c=1000;pos=1001;}
@@ -171,10 +173,10 @@ function doit() {
 
   }
 }
-document.getElementById("demo1").innerHTML = doit();
-document.getElementById("demo2").innerHTML = doitt();		
-document.getElementById("demo").innerHTML = doit1();
-document.getElementById("demot").innerHTML = doit2();	
+document.getElementById("demo1").innerHTML = doit1();
+document.getElementById("demo2").innerHTML = doit2();		
+document.getElementById("demo").innerHTML = doit();
+document.getElementById("demot").innerHTML = doitt();	
 </script>
   </body>
 </html>
